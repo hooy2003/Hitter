@@ -1,6 +1,6 @@
 # Hitter
 
-Fashion, News, etc...
+Fashion, News, etc
 
 ## Project Setup
 
