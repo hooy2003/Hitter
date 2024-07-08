@@ -32,4 +32,6 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 
+app.config.globalProperties.$analytics = analytics
+
 app.mount('#app')

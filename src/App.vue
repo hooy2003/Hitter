@@ -1,6 +1,11 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import HeaderNow from './components/HeaderNow.vue'
+
+onMounted(() => {
+  $analytics.logEvent('page_view', { page_path: window.location.pathname })
+})
 </script>
 
 <template>
