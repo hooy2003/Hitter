@@ -8,7 +8,7 @@ import router from './router'
 import './assets/main.css'
 
 import { initializeApp } from 'firebase/app'
-import { getAnalytics } from 'firebase/analytics'
+import { getAnalytics, logEvent } from 'firebase/analytics'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,15 +23,15 @@ const firebaseConfig = {
   measurementId: 'G-GHYZHB8JC2'
 }
 
-// Initialize Firebase
 const appFirebase = initializeApp(firebaseConfig)
 const analytics = getAnalytics(appFirebase)
+export const gaLogEvent = (event_name: string) => {
+  logEvent(analytics, event_name)
+}
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-
-app.config.globalProperties.$analytics = analytics
 
 app.mount('#app')
